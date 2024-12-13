@@ -1,7 +1,4 @@
 ﻿using LeituraArquivo.Entities;
-
-
-
 namespace LeituraArquivo;
 
     class Program
