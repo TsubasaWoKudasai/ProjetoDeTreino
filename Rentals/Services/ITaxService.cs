@@ -1,8 +1,7 @@
 ﻿
+namespace Rentals.Services;
 
-namespace Rentals.Services
+interface ITaxService
 {
-    class ITaxService
-    {
-    }
+    double Tax(double amount);
 }
