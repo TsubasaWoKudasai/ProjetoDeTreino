@@ -15,7 +15,7 @@ namespace LeituraArquivo;
 
                 string sourceFolderPath = Path.GetDirectoryName(sourceFilePath);
                 string targetFolderPath = sourceFolderPath + @"\out";
-                string targetFilePath = targetFolderPath + @"\arquivoTeste2.txt";
+                string targetFilePath = targetFolderPath + @"\arquivoTeste.txt";
 
                 Directory.CreateDirectory(targetFolderPath);
 
