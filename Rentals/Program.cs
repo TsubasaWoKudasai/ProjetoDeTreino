@@ -1,4 +1,5 @@
-﻿using Rentals.Entities;
+﻿using System.Globalization;
+using Rentals.Entities;
 using Rentals.Services;
 
 namespace Rentals;
@@ -11,9 +12,9 @@ class Program
         Console.Write("Car model: ");
         string model = Console.ReadLine();
         Console.Write("Pickup (dd/MM/yyyy HH:mm): ");
-        DateTime start = DateTime.ParseExact(Console.ReadLine(), "dd/MM/yyyy HH:mm");
+        DateTime start = DateTime.ParseExact(Console.ReadLine(), "dd/MM/yyyy HH:mm", CultureInfo.InvariantCulture);
         Console.Write("Return (dd/MM/yyyy HH:mm): ");
-        DateTime finish = DateTime.ParseExact(Console.ReadLine(), "dd/MM/yyyy HH:mm");
+        DateTime finish = DateTime.ParseExact(Console.ReadLine(), "dd/MM/yyyy HH:mm", CultureInfo.InvariantCulture);
 
         Console.Write("Enter price per hour: ");
         double hour = double.Parse(Console.ReadLine());
