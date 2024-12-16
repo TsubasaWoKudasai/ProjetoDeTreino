@@ -7,7 +7,7 @@
     public Vehicle Vehicle { get; private set; }
     public Invoice Invoice { get; set; }
 
-    public CarRental(DateTime start, DateTime finish, Vehicle vehicle, Invoice invoice)
+    public CarRental(DateTime start, DateTime finish, Vehicle vehicle)
     {
         Start = start;
         Finish = finish;
