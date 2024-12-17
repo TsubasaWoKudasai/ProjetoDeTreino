@@ -23,6 +23,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Rentals", "Rentals\Rentals.
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PaymentService", "PaymentService\PaymentService.csproj", "{D04E2CF0-396C-4922-8338-B1F3700AF0BC}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AveragePrice", "AveragePrice\AveragePrice.csproj", "{7BDA0106-CF51-4F3E-A7F7-FDE7B93D868F}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -69,6 +71,10 @@ Global
 		{D04E2CF0-396C-4922-8338-B1F3700AF0BC}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{D04E2CF0-396C-4922-8338-B1F3700AF0BC}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{D04E2CF0-396C-4922-8338-B1F3700AF0BC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7BDA0106-CF51-4F3E-A7F7-FDE7B93D868F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7BDA0106-CF51-4F3E-A7F7-FDE7B93D868F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7BDA0106-CF51-4F3E-A7F7-FDE7B93D868F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7BDA0106-CF51-4F3E-A7F7-FDE7B93D868F}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
