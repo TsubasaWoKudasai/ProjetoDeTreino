@@ -8,11 +8,12 @@ var connectionString = builder.Configuration.GetConnectionString("SalesWebMVCCon
 builder.Services.AddDbContext<SalesWebMVCContext>(options => options.UseMySql(connectionString,ServerVersion.AutoDetect(connectionString)));
 builder.Services.AddScoped<SeedingService>();
 builder.Services.AddScoped<SellerService>();
+builder.Services.AddScoped<DepartmentService>();
 
 
 
 
- //Add services to the container.
+//Add services to the container.
 builder.Services.AddControllersWithViews();
 
 var app = builder.Build();
