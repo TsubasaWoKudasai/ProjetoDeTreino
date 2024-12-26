@@ -37,16 +37,19 @@ namespace SalesWebMVC.Services
             _context.SaveChanges();
         }
 
-        public void Update(Seller obj) 
+        public async Task UpdateAsync(Seller obj)
         {
-            if (!_context.Seller.Any(x => x.Id == obj.Id)) 
+            bool hasAny = await _context.Seller.AnyAsync(x => x.Id == obj.Id);
+            if (!hasAny)
             {
                 throw new NotFoundException("Id not found");
             }
-            try { 
-            _context.Update(obj);
-            _context.SaveChanges();
-            } catch (DbConcurrencyException e)
+            try
+            {
+                _context.Update(obj);
+                await _context.SaveChangesAsync();
+            }
+            catch (DbUpdateConcurrencyException e)
             {
                 throw new DbConcurrencyException(e.Message);
             }
