@@ -2,6 +2,8 @@
 using SalesWebMVC.Models.ViewModels;
 using SalesWebMVC.Models;
 using SalesWebMVC.Services;
+using System.Diagnostics;
+
 
 namespace SalesWebMVC.Controllers
 {
@@ -25,7 +27,7 @@ namespace SalesWebMVC.Controllers
 
         public IActionResult Create()
         {
-            var departments = _departmentService.FindAll();
+            var departments = _departmentService.FindAllAsync();
             var viewModel = new SellerFormViewModel { Departments = (ICollection<Department>)departments };
             return View(viewModel);
         }
@@ -54,7 +56,7 @@ namespace SalesWebMVC.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public IActionResult Delete(int id) 
+        public IActionResult Delete(int id)
         {
             _sellerService.Remove(id);
             return RedirectToAction(nameof(Index));
@@ -72,6 +74,46 @@ namespace SalesWebMVC.Controllers
                 return NotFound();
             }
             return View(obj);
+        }
+
+        public async Task<IActionResult> Edit(int? id)
+        {
+            if (id == null)
+            {
+                return RedirectToAction(nameof(Error), new { message = "Id not provided" });
+            }
+
+            var obj =  _sellerService.FindById(id.Value);
+            if (obj == null)
+            {
+                return RedirectToAction(nameof(Error), new { message = "Id not found" });
+            }
+
+            List<Department> departments = await _departmentService.FindAllAsync();
+            SellerFormViewModel viewModel = new SellerFormViewModel { Seller = obj, Departments = departments };
+            return View(viewModel);
+        }
+
+        public IActionResult Error(string message)
+        {
+            var viewModel = new ErrorViewModel
+            {
+                Message = message,
+                RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier
+            };
+            return View(viewModel);
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public IActionResult Edit(int id, Seller seller)
+        {
+            if (id != seller.Id)
+            {
+                return BadRequest();
+            }
+            _sellerService.Update(seller);
+            return RedirectToAction(nameof(Index));
         }
     }
 }
