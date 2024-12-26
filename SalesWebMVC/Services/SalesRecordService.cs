@@ -1,7 +1,6 @@
 ﻿using SalesWebMVC.Models;
 using Microsoft.EntityFrameworkCore;
 using SalesWebMVC.Data;
-using SalesWebMVC.Models;
 namespace SalesWebMVC.Services
 {
     public class SalesRecordService
